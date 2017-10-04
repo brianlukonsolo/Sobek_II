@@ -1,0 +1,8 @@
+com\brianlukonsolo\factories\CamelExchangeFactory.class
+com\brianlukonsolo\constants\CodeConstants$StringRelatedConstants.class
+com\brianlukonsolo\constants\CodeConstants.class
+com\brianlukonsolo\converters\StringToForexPriceRecordConverter.class
+com\brianlukonsolo\processors\ReadFileContentsProcessor.class
+com\brianlukonsolo\Application.class
+com\brianlukonsolo\beans\ForexPriceRecord.class
+com\brianlukonsolo\routes\FileToDocumentRoute.class

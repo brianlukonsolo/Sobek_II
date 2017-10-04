@@ -1,0 +1,4 @@
+com\brianlukonsolo\processors\ReadFileContentsProcessorTest.class
+com\brianlukonsolo\utility\ForexPricesTestData.class
+com\brianlukonsolo\factories\CamelExchangeFactoryTest.class
+com\brianlukonsolo\converters\StringToForexPriceRecordConverterTest.class
