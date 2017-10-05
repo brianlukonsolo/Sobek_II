@@ -1,7 +1,11 @@
 package com.brianlukonsolo.routes;
 
+import com.brianlukonsolo.configuration.ConfigurationProcessor;
+import com.brianlukonsolo.processors.FilterByDateProcessor;
 import com.brianlukonsolo.processors.ReadFileContentsProcessor;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.properties.PropertiesComponent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.DOUBLE_NEWLINE;
@@ -12,9 +16,13 @@ public class FileToDocumentRoute extends RouteBuilder{
     @Override
     public void configure() throws Exception {
         from("file:INPUTS?noop=true")
-                //.log(NEWLINE + "Starting route ..." + NEWLINE)
+                .log(NEWLINE + "Starting route ..." + NEWLINE)
+                .process(new ConfigurationProcessor())
                 .process(new ReadFileContentsProcessor())
-                .to("file:OUTPUT");
+                .process(new FilterByDateProcessor())
+                .log("${body}")
+                .end();
+                //.to("file:OUTPUT");
 
     }
 

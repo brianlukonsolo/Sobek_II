@@ -1,7 +1,12 @@
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\constants\CodeConstants.java
+C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\configuration\ApplicationConfiguration.java
+C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\configuration\ConfigurationProcessor.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\converters\StringToForexPriceRecordConverter.java
+C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\converters\StringToTimeConverter.java
+C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\converters\StringToDateConverter.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\routes\FileToDocumentRoute.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\factories\CamelExchangeFactory.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\beans\ForexPriceRecord.java
+C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\processors\FilterByDateProcessor.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\Application.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\main\java\com\brianlukonsolo\processors\ReadFileContentsProcessor.java
