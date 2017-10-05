@@ -4,20 +4,18 @@ import com.brianlukonsolo.beans.ForexPriceRecord;
 import com.brianlukonsolo.converters.StringToForexPriceRecordConverter;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 
 @Component
 public class ReadFileContentsProcessor implements Processor {
-    @Autowired
-    private StringToForexPriceRecordConverter stringToForexPriceRecordConverter;
-
+    private StringToForexPriceRecordConverter stringToForexPriceRecordConverter = new StringToForexPriceRecordConverter();
     @Override
     public void process(Exchange exchange) throws Exception {
         String[] listOfForexPriceRecordStrings = exchange.getIn().getBody(String.class).split("\r\n");
         ArrayList<ForexPriceRecord> forexPriceRecords = priceRecordStringsToPriceRecordObjectsList(listOfForexPriceRecordStrings);
-        exchange.getIn().setHeader("priceRecords", forexPriceRecords);
+        listOfForexPriceRecordStrings = null;
+        exchange.getIn().setBody(forexPriceRecords);
 
     }
 

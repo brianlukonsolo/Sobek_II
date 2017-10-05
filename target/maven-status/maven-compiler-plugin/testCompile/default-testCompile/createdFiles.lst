@@ -1,8 +1,0 @@
-com\brianlukonsolo\processors\ConfigurationProcessorTest.class
-com\brianlukonsolo\processors\ReadFileContentsProcessorTest.class
-com\brianlukonsolo\factories\CamelExchangeFactoryTest.class
-com\brianlukonsolo\converters\StringToDateConverterTest.class
-com\brianlukonsolo\converters\StringToForexPriceRecordConverterTest.class
-com\brianlukonsolo\utility\ForexPricesTestData.class
-com\brianlukonsolo\processors\FilterByDateProcessorTest.class
-com\brianlukonsolo\converters\StringToTimeConverterTest.class
