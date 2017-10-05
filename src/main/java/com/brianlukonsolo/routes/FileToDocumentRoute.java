@@ -1,6 +1,7 @@
 package com.brianlukonsolo.routes;
 
 import com.brianlukonsolo.configuration.ConfigurationProcessor;
+import com.brianlukonsolo.processors.FilterByDateProcessor;
 import com.brianlukonsolo.processors.ReadFileContentsProcessor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.properties.PropertiesComponent;
@@ -18,7 +19,10 @@ public class FileToDocumentRoute extends RouteBuilder{
                 .log(NEWLINE + "Starting route ..." + NEWLINE)
                 .process(new ConfigurationProcessor())
                 .process(new ReadFileContentsProcessor())
-                .to("file:OUTPUT");
+                .process(new FilterByDateProcessor())
+                .log("${body}")
+                .end();
+                //.to("file:OUTPUT");
 
     }
 

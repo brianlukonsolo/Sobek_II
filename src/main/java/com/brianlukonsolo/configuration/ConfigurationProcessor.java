@@ -15,11 +15,9 @@ import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.
 @Component
 public class ConfigurationProcessor implements Processor{
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigurationProcessor.class);
-    @Autowired
-    ApplicationConfiguration applicationConfiguration;
-
     @Override
     public void process(Exchange exchange) throws Exception {
+        ApplicationConfiguration applicationConfiguration = new ApplicationConfiguration();
         Properties properties = applicationConfiguration.getProperties(CONFIGURATION_FILE_PATH);
         String[] propertyNamesList = properties.stringPropertyNames().toString().replace("[","").replace("]","").split(",");
         propertyNamesList = trimAllStrings(propertyNamesList);

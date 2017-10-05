@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 public class StringToForexPriceRecordConverter {
 
     @Converter
-    public static ForexPriceRecord convert(String priceRecordString){
+    public ForexPriceRecord convert(String priceRecordString){
         priceRecordString.trim();
         ForexPriceRecord forexPriceRecord = createPriceRecordObjectFromString(priceRecordString);
 
@@ -20,7 +20,7 @@ public class StringToForexPriceRecordConverter {
 
     }
 
-    private static ForexPriceRecord createPriceRecordObjectFromString(String priceRecordString) throws ArrayIndexOutOfBoundsException {
+    private ForexPriceRecord createPriceRecordObjectFromString(String priceRecordString) throws ArrayIndexOutOfBoundsException {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
         LocalDate date;
         LocalTime time;
@@ -40,5 +40,6 @@ public class StringToForexPriceRecordConverter {
         return recordObject;
 
     }
+
 
 }

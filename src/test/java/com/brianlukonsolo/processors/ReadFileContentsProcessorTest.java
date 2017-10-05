@@ -21,16 +21,15 @@ import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.
 @SpringBootTest
 public class ReadFileContentsProcessorTest extends CamelTestSupport {
     private Logger LOGGER = LoggerFactory.getLogger(ReadFileContentsProcessorTest.class);
-
     @Autowired
     private ReadFileContentsProcessor readFileContentsProcessor;
 
     @Test
-    public void whenPassedAValidForexCsvItShouldSetHeaderContainingArrayListOfPriceRecords() throws Exception {
+    public void whenPassedAValidForexCsvItShouldSetBodyAsArrayListOfPriceRecords() throws Exception {
         Exchange exchange = CamelExchangeFactory.createExchange(context);
         exchange.getIn().setBody(ForexPricesTestData.testData);
         readFileContentsProcessor.process(exchange);
-        Object actual = exchange.getIn().getHeader(HEADER_PRICE_RECORDS, ArrayList.class);
+        Object actual = exchange.getIn().getBody();
         LOGGER.info(DOUBLE_NEWLINE + "Actual output: " + actual + DOUBLE_NEWLINE);
         assertNotEquals(null, actual);
     }
