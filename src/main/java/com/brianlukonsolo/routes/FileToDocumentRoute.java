@@ -12,7 +12,7 @@ public class FileToDocumentRoute extends RouteBuilder{
     @Override
     public void configure() throws Exception {
         from("file:INPUTS?noop=true")
-                .log(NEWLINE + "File recieved:" + NEWLINE + "${body}" + DOUBLE_NEWLINE)
+                //.log(NEWLINE + "Starting route ..." + NEWLINE)
                 .process(new ReadFileContentsProcessor())
                 .to("file:OUTPUT");
 

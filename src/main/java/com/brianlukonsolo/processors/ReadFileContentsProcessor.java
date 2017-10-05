@@ -6,35 +6,28 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 @Component
-public class ReadFileContentsProcessor implements Processor{
+public class ReadFileContentsProcessor implements Processor {
     @Autowired
     private StringToForexPriceRecordConverter stringToForexPriceRecordConverter;
 
     @Override
     public void process(Exchange exchange) throws Exception {
-        exchange.getIn().setHeader("priceRecords", priceRecordStringsToPriceRecordObjectsList(exchange));
+        String[] listOfForexPriceRecordStrings = exchange.getIn().getBody(String.class).split("\r\n");
+        ArrayList<ForexPriceRecord> forexPriceRecords = priceRecordStringsToPriceRecordObjectsList(listOfForexPriceRecordStrings);
+        exchange.getIn().setHeader("priceRecords", forexPriceRecords);
 
     }
 
-    private ArrayList<ForexPriceRecord> priceRecordStringsToPriceRecordObjectsList(final Exchange exchange) throws IOException {
-        ArrayList<ForexPriceRecord> listOfPriceRecordObjectsFromFile = new ArrayList<>();
-        String lineInFile;
-        InputStream inputStream = new ByteArrayInputStream(exchange.getIn().getBody().toString().getBytes(StandardCharsets.UTF_8.name()));
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exchange.getIn().getBody(InputStream.class)), 1);
-        while ((lineInFile = bufferedReader.readLine()) != null) {
-            ForexPriceRecord forexPriceRecord = stringToForexPriceRecordConverter.convert(lineInFile);
-            listOfPriceRecordObjectsFromFile.add(forexPriceRecord);
+    private ArrayList<ForexPriceRecord> priceRecordStringsToPriceRecordObjectsList(String[] listOfForexPriceRecordStrings) {
+        ArrayList<ForexPriceRecord> listOfPriceRecordObjects = new ArrayList<>();
+        for(String forexPriceRecordString : listOfForexPriceRecordStrings){
+            listOfPriceRecordObjects.add(stringToForexPriceRecordConverter.convert(forexPriceRecordString.trim()));
         }
-        inputStream.close();
-        bufferedReader.close();
-
-        return listOfPriceRecordObjectsFromFile;
+        System.out.println("NUMBER OF THINGS IN ARRAY LIST = " + listOfPriceRecordObjects.size());
+        return listOfPriceRecordObjects;
 
     }
 

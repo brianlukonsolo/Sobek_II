@@ -3,7 +3,6 @@ package com.brianlukonsolo.converters;
 import com.brianlukonsolo.beans.ForexPriceRecord;
 import org.apache.camel.Converter;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -11,15 +10,17 @@ import java.time.format.DateTimeFormatter;
 @Component
 @Converter
 public class StringToForexPriceRecordConverter {
+
     @Converter
-    public ForexPriceRecord convert(String priceRecordString){
+    public static ForexPriceRecord convert(String priceRecordString){
         priceRecordString.trim();
         ForexPriceRecord forexPriceRecord = createPriceRecordObjectFromString(priceRecordString);
 
         return forexPriceRecord;
+
     }
 
-    private ForexPriceRecord createPriceRecordObjectFromString(String priceRecordString) throws ArrayIndexOutOfBoundsException {
+    private static ForexPriceRecord createPriceRecordObjectFromString(String priceRecordString) throws ArrayIndexOutOfBoundsException {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
         LocalDate date;
         LocalTime time;
@@ -37,5 +38,7 @@ public class StringToForexPriceRecordConverter {
         ForexPriceRecord recordObject = new ForexPriceRecord(date, time, open, high, low, close, volume);
 
         return recordObject;
+
     }
+
 }
