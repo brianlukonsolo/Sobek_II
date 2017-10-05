@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 
+import static com.brianlukonsolo.constants.CodeConstants.CamelHeaders.HEADER_PRICE_RECORDS;
 import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.DOUBLE_NEWLINE;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,7 +30,7 @@ public class ReadFileContentsProcessorTest extends CamelTestSupport {
         Exchange exchange = CamelExchangeFactory.createExchange(context);
         exchange.getIn().setBody(ForexPricesTestData.testData);
         readFileContentsProcessor.process(exchange);
-        Object actual = exchange.getIn().getHeader("priceRecords", ArrayList.class);
+        Object actual = exchange.getIn().getHeader(HEADER_PRICE_RECORDS, ArrayList.class);
         LOGGER.info(DOUBLE_NEWLINE + "Actual output: " + actual + DOUBLE_NEWLINE);
         assertNotEquals(null, actual);
     }

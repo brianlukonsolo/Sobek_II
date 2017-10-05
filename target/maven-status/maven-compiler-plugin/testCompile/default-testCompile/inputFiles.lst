@@ -1,4 +1,6 @@
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\test\java\com\brianlukonsolo\factories\CamelExchangeFactoryTest.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\test\java\com\brianlukonsolo\utility\ForexPricesTestData.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\test\java\com\brianlukonsolo\converters\StringToForexPriceRecordConverterTest.java
+C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\test\java\com\brianlukonsolo\processors\FilterByDateProcessorTest.java
 C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\test\java\com\brianlukonsolo\processors\ReadFileContentsProcessorTest.java
+C:\Users\lordmcbrian\IdeaProjects\Sobek_II\src\test\java\com\brianlukonsolo\processors\ConfigurationProcessorTest.java

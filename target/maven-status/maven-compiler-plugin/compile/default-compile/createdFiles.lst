@@ -1,8 +1,14 @@
-com\brianlukonsolo\factories\CamelExchangeFactory.class
 com\brianlukonsolo\constants\CodeConstants$StringRelatedConstants.class
 com\brianlukonsolo\constants\CodeConstants.class
 com\brianlukonsolo\converters\StringToForexPriceRecordConverter.class
-com\brianlukonsolo\processors\ReadFileContentsProcessor.class
+com\brianlukonsolo\processors\ConfigurationProcessor.class
 com\brianlukonsolo\Application.class
+com\brianlukonsolo\processors\FilterByDateProcessor.class
 com\brianlukonsolo\beans\ForexPriceRecord.class
+com\brianlukonsolo\constants\CodeConstants$CamelHeaders.class
+com\brianlukonsolo\factories\CamelExchangeFactory.class
+com\brianlukonsolo\constants\CodeConstants$PropertyNames.class
+com\brianlukonsolo\processors\ReadFileContentsProcessor.class
+com\brianlukonsolo\configuration\ApplicationConfiguration.class
+com\brianlukonsolo\constants\CodeConstants$LocationsAndPaths.class
 com\brianlukonsolo\routes\FileToDocumentRoute.class
