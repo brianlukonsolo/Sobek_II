@@ -18,6 +18,7 @@ public class ForexPriceRecord {
         this.close = close;
         this.volume = volume;
 
+
     }
 
     @Override
@@ -33,6 +34,7 @@ public class ForexPriceRecord {
                 "#[VOLUME]> " + this.volume;
 
         return record;
+
 
     }
 

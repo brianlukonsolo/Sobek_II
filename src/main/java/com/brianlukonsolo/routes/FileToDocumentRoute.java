@@ -17,15 +17,18 @@ public class FileToDocumentRoute extends RouteBuilder{
         from("file:INPUTS?noop=true")
                 .log(NEWLINE + "Starting route ..." + NEWLINE)
                 .process(new ConfigurationProcessor())
-                .process(new ReadFileContentsProcessor())
-                .process(new FilterByDateProcessor())
-                .process(new FilterByTimePeriodProcessor())
-                .process(new FilterBySpecificDaysProcessor())
-                .process(new FilterByVolumeProcessor())
+                    .process(new ReadFileContentsProcessor())
+                        .process(new FilterByDateProcessor())
+                        .process(new FilterByTimePeriodProcessor())
+                        .process(new FilterBySpecificDaysProcessor())
+                        .process(new FilterByVolumeProcessor())
+                    .process(new TradePlacementProcessor())
                 .log("${body}")
                 .end();
-                //.to("file:OUTPUT");
+
 
     }
+
+
 
 }

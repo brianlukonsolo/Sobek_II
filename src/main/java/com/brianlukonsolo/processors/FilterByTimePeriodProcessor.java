@@ -2,6 +2,7 @@ package com.brianlukonsolo.processors;
 
 import com.brianlukonsolo.beans.ForexPriceRecord;
 import com.brianlukonsolo.converters.StringToTimeConverter;
+import com.brianlukonsolo.correction.TimeMidnightCorrector;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.springframework.stereotype.Component;
@@ -17,22 +18,19 @@ public class FilterByTimePeriodProcessor implements Processor{
     private StringToTimeConverter stringToTimeConverter = new StringToTimeConverter();
     @Override
     public void process(Exchange exchange) throws Exception {
-        String filterTimeStart = validateTimeInput(exchange.getIn().getHeader(PROPERTY_FILTER_TIME_START, String.class));
-        String filterTimeStop = validateTimeInput(exchange.getIn().getHeader(PROPERTY_FILTER_TIME_STOP, String.class));
+        String filterTimeStart = TimeMidnightCorrector.correct(exchange.getIn().getHeader(PROPERTY_FILTER_TIME_START, String.class));
+        String filterTimeStop = TimeMidnightCorrector.correct(exchange.getIn().getHeader(PROPERTY_FILTER_TIME_STOP, String.class));
 
         if(filterTimeStart != null && filterTimeStop != null){
             ArrayList<ForexPriceRecord> listOfForexPriceRecords = (ArrayList<ForexPriceRecord>) exchange.getIn().getBody();
             listOfForexPriceRecords = filterByTime(filterTimeStart, filterTimeStop, listOfForexPriceRecords);
             exchange.getIn().setBody(listOfForexPriceRecords);
-        }
-    }
 
-    private String validateTimeInput(String timeString){
-        String updatedTimeString = timeString;
-        if(timeString.equals("24:00")){
-            updatedTimeString = "23:59";
+            listOfForexPriceRecords = null;
+            filterTimeStart = null;
+            filterTimeStop = null;
         }
-        return updatedTimeString;
+
 
     }
 
@@ -53,6 +51,7 @@ public class FilterByTimePeriodProcessor implements Processor{
             }
         }
         return filteredList;
+
 
     }
 

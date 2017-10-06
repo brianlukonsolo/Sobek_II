@@ -14,8 +14,11 @@ public class ReadFileContentsProcessor implements Processor {
     public void process(Exchange exchange) throws Exception {
         String[] listOfForexPriceRecordStrings = exchange.getIn().getBody(String.class).split("\r\n");
         ArrayList<ForexPriceRecord> forexPriceRecords = priceRecordStringsToPriceRecordObjectsList(listOfForexPriceRecordStrings);
-        listOfForexPriceRecordStrings = null;
         exchange.getIn().setBody(forexPriceRecords);
+
+        listOfForexPriceRecordStrings = null;
+        forexPriceRecords = null;
+
 
     }
 
@@ -24,7 +27,6 @@ public class ReadFileContentsProcessor implements Processor {
         for(String forexPriceRecordString : listOfForexPriceRecordStrings){
             listOfPriceRecordObjects.add(stringToForexPriceRecordConverter.convert(forexPriceRecordString.trim()));
         }
-        System.out.println("NUMBER OF THINGS IN ARRAY LIST = " + listOfPriceRecordObjects.size());
         return listOfPriceRecordObjects;
 
     }

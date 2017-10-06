@@ -37,6 +37,10 @@ public class StringToForexPriceRecordConverter {
         volume = Integer.parseInt(lineParts[6]);
         ForexPriceRecord recordObject = new ForexPriceRecord(date, time, open, high, low, close, volume);
 
+        dateTimeFormatter = null;
+        date = null;
+        time = null;
+
         return recordObject;
 
     }
