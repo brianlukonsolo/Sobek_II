@@ -15,18 +15,21 @@ public class FilterBySpecificDaysProcessor implements Processor {
     public void process(Exchange exchange) throws Exception {
         String[] filterSpecificDaysList = trimAllStrings(exchange.getIn().getHeader(PROPERTY_FILTER_SPECIFIC_DAYS, String.class).split(","));
 
-        if(filterSpecificDaysList != null){
+        if (filterSpecificDaysList != null) {
             ArrayList<ForexPriceRecord> listOfForexPriceRecords = (ArrayList<ForexPriceRecord>) exchange.getIn().getBody();
             listOfForexPriceRecords = filterBySpecificDays(listOfForexPriceRecords, filterSpecificDaysList);
             exchange.getIn().setBody(listOfForexPriceRecords);
+
+            listOfForexPriceRecords = null;
+            filterSpecificDaysList = null;
         }
 
 
     }
 
-    private String[] trimAllStrings(String[] arrayOfStringsToTrim){
+    private String[] trimAllStrings(String[] arrayOfStringsToTrim) {
         String[] trimmedStringsArray = new String[arrayOfStringsToTrim.length];
-        for(int i=0;i<arrayOfStringsToTrim.length;i++){
+        for (int i = 0; i < arrayOfStringsToTrim.length; i++) {
             trimmedStringsArray[i] = arrayOfStringsToTrim[i].trim();
         }
         return trimmedStringsArray;
@@ -34,7 +37,7 @@ public class FilterBySpecificDaysProcessor implements Processor {
 
     }
 
-    private ArrayList<ForexPriceRecord> filterBySpecificDays(ArrayList<ForexPriceRecord> listOfForexPriceRecords, String[] listOfDays){
+    private ArrayList<ForexPriceRecord> filterBySpecificDays(ArrayList<ForexPriceRecord> listOfForexPriceRecords, String[] listOfDays) {
         ArrayList<ForexPriceRecord> newListOfRecords = new ArrayList<>();
         for (ForexPriceRecord record : listOfForexPriceRecords) {
             for (String day : listOfDays) {

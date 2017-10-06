@@ -16,6 +16,7 @@ public class ApplicationConfiguration {
         if(inputStream != null){
             inputStream.close();
         }
+        inputStream = null;
 
         return properties;
 

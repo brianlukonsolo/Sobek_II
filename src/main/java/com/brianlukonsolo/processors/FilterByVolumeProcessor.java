@@ -21,6 +21,10 @@ public class FilterByVolumeProcessor implements Processor {
             ArrayList<ForexPriceRecord> listOfForexPriceRecords = (ArrayList<ForexPriceRecord>) exchange.getIn().getBody();
             listOfForexPriceRecords = filterByVolume(filterVolumeMin, filterVolumeMax, listOfForexPriceRecords);
             exchange.getIn().setBody(listOfForexPriceRecords);
+
+            listOfForexPriceRecords = null;
+            filterVolumeMin = null;
+            filterVolumeMax = null;
         }
 
 
