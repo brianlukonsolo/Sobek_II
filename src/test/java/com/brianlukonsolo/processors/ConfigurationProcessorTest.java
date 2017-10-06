@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ConfigurationProcessorTest {
-    private Logger LOGGER = LoggerFactory.getLogger(ConfigurationProcessorTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigurationProcessorTest.class);
     @Autowired
     private ConfigurationProcessor configurationProcessor;
     @Autowired
