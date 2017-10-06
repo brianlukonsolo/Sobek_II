@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed2cc80c-eb96-4ac2-b710-ead2e6c1017e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/routes/FileToDocumentRoute.java" afterPath="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/routes/FileToDocumentRoute.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/configuration.properties" afterPath="$PROJECT_DIR$/src/main/resources/configuration.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,7 +47,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilterByTimePeriodProcessorTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FilterByTimePeriodProcessorTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessorTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
@@ -86,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilterByTimePeriodProcessor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FilterByTimePeriodProcessor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="410">
+              <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -191,9 +186,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/test/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/routes/FileToDocumentRoute.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/Application.java" />
         <option value="$PROJECT_DIR$/src/main/resources/configuration.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessor.java" />
       </list>
     </option>
   </component>
@@ -1106,16 +1101,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/brianlukonsolo/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1136,6 +1121,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/brianlukonsolo/processors/FilterByTimePeriodProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

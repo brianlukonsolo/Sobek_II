@@ -30,7 +30,7 @@ public class FilterByTimePeriodProcessor implements Processor{
     private String validateTimeInput(String timeString){
         String updatedTimeString = timeString;
         if(timeString.equals("24:00")){
-            updatedTimeString = "00:00";
+            updatedTimeString = "23:59";
         }
         return updatedTimeString;
 
