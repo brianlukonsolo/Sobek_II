@@ -12,33 +12,30 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import java.util.ArrayList;
 
-import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_FILTER_DATE_START;
-import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_FILTER_DATE_STOP;
+import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_FILTER_SPECIFIC_DAYS;
 import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.DOUBLE_NEWLINE;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class FilterByDateProcessorTest {
-    private Logger LOGGER = LoggerFactory.getLogger(FilterByDateProcessorTest.class);
+public class FilterBySpecificDaysProcessorTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FilterBySpecificDaysProcessor.class);
     @Autowired
-    private FilterByDateProcessor filterByDateProcessor;
+    private FilterBySpecificDaysProcessor filterBySpecificDaysProcessor;
     @Autowired
     private CamelContext context;
 
     @Test
-    public void itShouldFilterAnArrayListOfPriceRecordObjectsByDate() throws Exception {
+    public void itShouldFilterAnArrayListOfPriceRecordObjectsBySpecificDays() throws Exception {
         Exchange exchange = CamelExchangeFactory.createExchange(context);
-        exchange.getIn().setHeader(PROPERTY_FILTER_DATE_START, "2017.09.20");
-        exchange.getIn().setHeader(PROPERTY_FILTER_DATE_STOP, "2017.09.25");
+        exchange.getIn().setHeader(PROPERTY_FILTER_SPECIFIC_DAYS, "Monday,Tuesday,Friday");
         exchange.getIn().setBody(ForexPricesTestData.createForexPriceRecordArrayListForTesting());
-        filterByDateProcessor.process(exchange);
+        filterBySpecificDaysProcessor.process(exchange);
         ArrayList<ForexPriceRecord> actual = (ArrayList<ForexPriceRecord>) exchange.getIn().getBody();
-        LOGGER.info(DOUBLE_NEWLINE + "Actual output" + actual + DOUBLE_NEWLINE);
-        assertEquals(5, actual.size());
-
+        LOGGER.info(DOUBLE_NEWLINE + "Actual output: " + actual + DOUBLE_NEWLINE);
+        assertEquals(11,actual.size());
     }
-
 }
