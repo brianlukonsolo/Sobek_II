@@ -20,7 +20,7 @@ import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ReadFileContentsProcessorTest extends CamelTestSupport {
-    private Logger LOGGER = LoggerFactory.getLogger(ReadFileContentsProcessorTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReadFileContentsProcessorTest.class);
     @Autowired
     private ReadFileContentsProcessor readFileContentsProcessor;
 

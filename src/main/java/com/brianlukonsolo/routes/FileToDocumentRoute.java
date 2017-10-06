@@ -1,10 +1,7 @@
 package com.brianlukonsolo.routes;
 
 import com.brianlukonsolo.configuration.ConfigurationProcessor;
-import com.brianlukonsolo.processors.FilterByDateProcessor;
-import com.brianlukonsolo.processors.FilterBySpecificDaysProcessor;
-import com.brianlukonsolo.processors.FilterByTimePeriodProcessor;
-import com.brianlukonsolo.processors.ReadFileContentsProcessor;
+import com.brianlukonsolo.processors.*;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.properties.PropertiesComponent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +21,7 @@ public class FileToDocumentRoute extends RouteBuilder{
                 .process(new FilterByDateProcessor())
                 .process(new FilterByTimePeriodProcessor())
                 .process(new FilterBySpecificDaysProcessor())
+                .process(new FilterByVolumeProcessor())
                 .log("${body}")
                 .end();
                 //.to("file:OUTPUT");

@@ -12,33 +12,32 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import java.util.ArrayList;
 
-import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_FILTER_DATE_START;
-import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_FILTER_DATE_STOP;
+import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_FILTER_VOLUME_MAX;
+import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_FILTER_VOLUME_MIN;
 import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.DOUBLE_NEWLINE;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class FilterByDateProcessorTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(FilterByDateProcessorTest.class);
+public class FilterByVolumeProcessorTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FilterByVolumeProcessorTest.class);
     @Autowired
-    private FilterByDateProcessor filterByDateProcessor;
+    private FilterByVolumeProcessor filterByVolumeProcessor;
     @Autowired
     private CamelContext context;
 
     @Test
-    public void itShouldFilterAnArrayListOfPriceRecordObjectsByDate() throws Exception {
+    public void itShouldFilterAnArrayListOfPriceRecordObjectsByTimePeriod() throws Exception {
         Exchange exchange = CamelExchangeFactory.createExchange(context);
-        exchange.getIn().setHeader(PROPERTY_FILTER_DATE_START, "2017.09.20");
-        exchange.getIn().setHeader(PROPERTY_FILTER_DATE_STOP, "2017.09.25");
+        exchange.getIn().setHeader(PROPERTY_FILTER_VOLUME_MIN, 0);
+        exchange.getIn().setHeader(PROPERTY_FILTER_VOLUME_MAX, 250);
         exchange.getIn().setBody(ForexPricesTestData.createForexPriceRecordArrayListForTesting());
-        filterByDateProcessor.process(exchange);
+        filterByVolumeProcessor.process(exchange);
         ArrayList<ForexPriceRecord> actual = (ArrayList<ForexPriceRecord>) exchange.getIn().getBody();
-        LOGGER.info(DOUBLE_NEWLINE + "Actual output" + actual + DOUBLE_NEWLINE);
-        assertEquals(5, actual.size());
-
+        LOGGER.info(DOUBLE_NEWLINE + "Actual output: " + actual + DOUBLE_NEWLINE);
+        assertEquals(4, actual.size());
     }
-
 }

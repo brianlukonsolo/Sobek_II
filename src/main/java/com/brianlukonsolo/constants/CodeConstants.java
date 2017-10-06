@@ -10,6 +10,8 @@ public class CodeConstants {
         public static final String PROPERTY_FILTER_DATE_STOP = "filterDate_stop";
         public static final String PROPERTY_FILTER_TIME_START = "filterTime_start";
         public static final String PROPERTY_FILTER_TIME_STOP = "filterTime_stop";
+        public static final String PROPERTY_FILTER_VOLUME_MIN = "filterVolume_min";
+        public static final String PROPERTY_FILTER_VOLUME_MAX = "filterVolume_max";
         public static final String PROPERTY_FILTER_SPECIFIC_DAYS = "filterDays_specific";
 
 
