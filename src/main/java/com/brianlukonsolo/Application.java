@@ -16,7 +16,7 @@ public class Application {
         SpringApplication.run(Application.class, args);
 
         CamelContext context = new DefaultCamelContext();
-        context.addRoutes(new FileToDocumentRoute());
+        //Spring automatically finds the routes
         context.start();
         Thread.sleep(5000);
         context.stop();

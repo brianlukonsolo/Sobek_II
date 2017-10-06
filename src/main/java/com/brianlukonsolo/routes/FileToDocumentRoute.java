@@ -2,6 +2,7 @@ package com.brianlukonsolo.routes;
 
 import com.brianlukonsolo.configuration.ConfigurationProcessor;
 import com.brianlukonsolo.processors.FilterByDateProcessor;
+import com.brianlukonsolo.processors.FilterByTimePeriodProcessor;
 import com.brianlukonsolo.processors.ReadFileContentsProcessor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.properties.PropertiesComponent;
@@ -20,6 +21,7 @@ public class FileToDocumentRoute extends RouteBuilder{
                 .process(new ConfigurationProcessor())
                 .process(new ReadFileContentsProcessor())
                 .process(new FilterByDateProcessor())
+                .process(new FilterByTimePeriodProcessor())
                 .log("${body}")
                 .end();
                 //.to("file:OUTPUT");
