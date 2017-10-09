@@ -1,8 +1,7 @@
 package com.brianlukonsolo.utility;
 
-import com.brianlukonsolo.beans.ForexPriceRecord;
+import com.brianlukonsolo.forex.ForexPriceRecord;
 import com.brianlukonsolo.converters.StringToForexPriceRecordConverter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

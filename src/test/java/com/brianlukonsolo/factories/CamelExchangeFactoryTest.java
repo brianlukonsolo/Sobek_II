@@ -1,6 +1,6 @@
 package com.brianlukonsolo.factories;
 
-import com.brianlukonsolo.converters.StringToForexPriceRecordConverterTest;
+import com.brianlukonsolo.utility.CamelExchangeFactory;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.junit.Test;

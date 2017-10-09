@@ -1,4 +1,4 @@
-package com.brianlukonsolo.factories;
+package com.brianlukonsolo.utility;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;

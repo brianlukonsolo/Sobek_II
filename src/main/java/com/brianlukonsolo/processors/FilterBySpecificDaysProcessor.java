@@ -1,6 +1,6 @@
 package com.brianlukonsolo.processors;
 
-import com.brianlukonsolo.beans.ForexPriceRecord;
+import com.brianlukonsolo.forex.ForexPriceRecord;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.springframework.stereotype.Component;

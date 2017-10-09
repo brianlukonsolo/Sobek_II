@@ -1,6 +1,6 @@
 package com.brianlukonsolo.converters;
 
-import com.brianlukonsolo.beans.ForexPriceRecord;
+import com.brianlukonsolo.forex.ForexPriceRecord;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

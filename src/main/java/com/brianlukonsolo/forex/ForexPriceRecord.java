@@ -1,4 +1,4 @@
-package com.brianlukonsolo.beans;
+package com.brianlukonsolo.forex;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

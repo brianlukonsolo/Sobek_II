@@ -1,6 +1,6 @@
 package com.brianlukonsolo.processors;
 
-import com.brianlukonsolo.factories.CamelExchangeFactory;
+import com.brianlukonsolo.utility.CamelExchangeFactory;
 import com.brianlukonsolo.utility.ForexPricesTestData;
 import org.apache.camel.Exchange;
 import org.apache.camel.test.junit4.CamelTestSupport;
@@ -12,9 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.ArrayList;
-
-import static com.brianlukonsolo.constants.CodeConstants.CamelHeaders.HEADER_PRICE_RECORDS;
 import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.DOUBLE_NEWLINE;
 
 @RunWith(SpringJUnit4ClassRunner.class)
