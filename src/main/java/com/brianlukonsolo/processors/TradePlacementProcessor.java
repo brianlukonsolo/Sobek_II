@@ -29,12 +29,7 @@ public class TradePlacementProcessor implements Processor {
         String tradeOpenedAt = TimeMidnightCorrector.correct(exchange.getIn().getHeader(PROPERTY_TRADE_OPENED_AT_TIME, String.class));
         String tradeClosedAt = TimeMidnightCorrector.correct(exchange.getIn().getHeader(PROPERTY_TRADE_CLOSED_AT_TIME, String.class));
         String tradesConsecutiveInterval = exchange.getIn().getHeader(PROPERTY_TRADES_CONSECUTIVE_INTERVAL, String.class);
-        String[] filterSpecificDaysList = new String[1];
-        try{
-            trimAllStrings(exchange.getIn().getHeader(PROPERTY_FILTER_SPECIFIC_DAYS, String.class).split(","));
-        }catch (NullPointerException e){
-
-        }
+        String[] filterSpecificDaysList = trimAllStrings(exchange.getIn().getHeader(PROPERTY_FILTER_SPECIFIC_DAYS, String.class).split(","));
 
         int decimalPlaces = exchange.getIn().getHeader(HEADER_CLOSE_PRICE_DECIMAL_PLACES, int.class);
         if(decimalPlaces > 0){
