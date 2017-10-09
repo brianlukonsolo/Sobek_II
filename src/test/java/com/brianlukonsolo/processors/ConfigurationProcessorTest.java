@@ -1,7 +1,7 @@
 package com.brianlukonsolo.processors;
 
 import com.brianlukonsolo.configuration.ConfigurationProcessor;
-import com.brianlukonsolo.factories.CamelExchangeFactory;
+import com.brianlukonsolo.utility.CamelExchangeFactory;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.junit.Test;

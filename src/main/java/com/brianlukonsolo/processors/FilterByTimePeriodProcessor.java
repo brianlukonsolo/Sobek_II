@@ -1,6 +1,6 @@
 package com.brianlukonsolo.processors;
 
-import com.brianlukonsolo.beans.ForexPriceRecord;
+import com.brianlukonsolo.forex.ForexPriceRecord;
 import com.brianlukonsolo.converters.StringToTimeConverter;
 import com.brianlukonsolo.correction.TimeMidnightCorrector;
 import org.apache.camel.Exchange;

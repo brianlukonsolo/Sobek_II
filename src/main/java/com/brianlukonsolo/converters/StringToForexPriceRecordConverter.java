@@ -1,6 +1,6 @@
 package com.brianlukonsolo.converters;
 
-import com.brianlukonsolo.beans.ForexPriceRecord;
+import com.brianlukonsolo.forex.ForexPriceRecord;
 import org.apache.camel.Converter;
 import org.springframework.stereotype.Component;
 import java.time.LocalDate;

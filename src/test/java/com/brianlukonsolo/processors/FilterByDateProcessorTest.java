@@ -1,7 +1,7 @@
 package com.brianlukonsolo.processors;
 
-import com.brianlukonsolo.beans.ForexPriceRecord;
-import com.brianlukonsolo.factories.CamelExchangeFactory;
+import com.brianlukonsolo.forex.ForexPriceRecord;
+import com.brianlukonsolo.utility.CamelExchangeFactory;
 import com.brianlukonsolo.utility.ForexPricesTestData;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;

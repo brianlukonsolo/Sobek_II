@@ -1,6 +1,6 @@
 package com.brianlukonsolo.processors;
 
-import com.brianlukonsolo.factories.CamelExchangeFactory;
+import com.brianlukonsolo.utility.CamelExchangeFactory;
 import com.brianlukonsolo.utility.ForexPricesTestData;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
@@ -13,10 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static com.brianlukonsolo.constants.CodeConstants.CamelHeaders.HEADER_CLOSE_PRICE_DECIMAL_PLACES;
 import static com.brianlukonsolo.constants.CodeConstants.CamelHeaders.HEADER_IS_BUY_TRADE_RESULTS;
 import static com.brianlukonsolo.constants.CodeConstants.CamelHeaders.HEADER_IS_SELL_TRADE_RESULTS;
-import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_TRADE_CLOSED_AT_TIME;
-import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.PROPERTY_TRADE_OPENED_AT_TIME;
+import static com.brianlukonsolo.constants.CodeConstants.PropertyNames.*;
 import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.COMMA_SPACE;
 import static com.brianlukonsolo.constants.CodeConstants.StringRelatedConstants.DOUBLE_NEWLINE;
 import static org.junit.Assert.assertEquals;
@@ -34,6 +34,9 @@ public class TradePlacementProcessorTest {
     @Before
     public void before(){
         exchange = CamelExchangeFactory.createExchange(context);
+        exchange.getIn().setHeader(PROPERTY_TRADES_CONSECUTIVE_INTERVAL, "none");
+        exchange.getIn().setHeader(PROPERTY_FILTER_SPECIFIC_DAYS, "monday,tuesday,wednesday,thursday,friday");
+        exchange.getIn().setHeader(HEADER_CLOSE_PRICE_DECIMAL_PLACES, "5");
     }
 
     @Test
